@@ -13,7 +13,7 @@ def cerrar(conexion):
 	conexion.close()
 
 def generarDB():
-	conexion= sqlite3.connect("cineDB.db")
+	conexion= sqlite3.connect("base_de_datos\cineDB.db")
 	cursor= conexion.cursor()
 	cmd=[("""CREATE TABLE IF NOT EXISTS Usuario (
 	DNI INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -64,3 +64,4 @@ def generarDB():
 	conexion.commit()
 	conexion.close()
 
+#generarDB()
