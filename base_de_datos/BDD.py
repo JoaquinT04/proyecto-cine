@@ -1,7 +1,7 @@
 import sqlite3
 
 def crear_conexion():
-    conexion= sqlite3.connect("cineDB.db")
+    conexion= sqlite3.connect("base_de_datos\cineDB.db")
     return conexion
 
 def consulta(conexion,consulta):
