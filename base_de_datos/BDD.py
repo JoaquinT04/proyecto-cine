@@ -1,7 +1,7 @@
 import sqlite3
 
 def crear_conexion():
-    conexion= sqlite3.connect("cineDB.db")
+    conexion= sqlite3.connect("base_de_datos\cineDB.db")
     return conexion
 
 def consulta(conexion,consulta):
@@ -13,7 +13,7 @@ def cerrar(conexion):
 	conexion.close()
 
 def generarDB():
-	conexion= sqlite3.connect("cineDB.db")
+	conexion= sqlite3.connect("base_de_datos\cineDB.db")
 	cursor= conexion.cursor()
 	cmd=[("""CREATE TABLE IF NOT EXISTS Usuario (
 	DNI INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -48,6 +48,7 @@ def generarDB():
 	formato TEXT NOT NULL,
 	pelicula TEXT NOT NULL,
 	descuento FLOAT NOT NULL,
+	precio FLOTA NOT NULL,
 	horario TEXT NOT NULL,
 	nro_Butacas INTEGER NOT NULL,
 	FOREIGN KEY (butacas) REFERENCES Butacas(UniqueID),
@@ -62,5 +63,3 @@ def generarDB():
 
 	conexion.commit()
 	conexion.close()
-
-generarDB()
