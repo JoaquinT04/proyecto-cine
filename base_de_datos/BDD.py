@@ -63,3 +63,4 @@ def generarDB():
 	conexion.commit()
 	conexion.close()
 
+generarDB()
