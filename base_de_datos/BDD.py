@@ -1,13 +1,13 @@
 import sqlite3
 
 def crear_conexion():
-    conexion= sqlite3.connect("cineDB.db")
-    return conexion
+	conexion= sqlite3.connect("base_de_datos\BDD.py")
+	return conexion
 
 def consulta(conexion,consulta):
-    cursor= conexion.cursor()
-    cursor.execute(consulta)
-    conexion.commit()
+	cursor= conexion.cursor()
+	cursor.execute(consulta)
+	conexion.commit()
 
 def cerrar(conexion):
 	conexion.close()
@@ -62,5 +62,3 @@ def generarDB():
 
 	conexion.commit()
 	conexion.close()
-
-generarDB()
