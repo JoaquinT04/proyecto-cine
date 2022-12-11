@@ -48,6 +48,7 @@ def generarDB():
 	formato TEXT NOT NULL,
 	pelicula TEXT NOT NULL,
 	descuento FLOAT NOT NULL,
+	precio FLOTA NOT NULL,
 	horario TEXT NOT NULL,
 	nro_Butacas INTEGER NOT NULL,
 	FOREIGN KEY (butacas) REFERENCES Butacas(UniqueID),

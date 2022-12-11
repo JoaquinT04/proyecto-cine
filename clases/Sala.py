@@ -1,10 +1,11 @@
 class Sala():
-    def __init__(self,id=none,formato=none,butacas=none,pelicula=none,descuento=none,horario=none,nro=none):
+    def __init__(self,id=none,formato=none,butacas=none,pelicula=none,descuento=none,precio=none,horario=none,nro=none):
         self.__id=id
         self.__formato=formato
         self.__butacas=butacas
         self.__pelicula=pelicula
         self.__descuento=descuento
+        self.__precio=precio
         self.__horario=horario #hh:mm
         self.__nroButacasReservadas=nro
 
@@ -45,6 +46,13 @@ class Sala():
         self.__descuento=nDescuento
 
     @property
+    def precio(self):
+        return self.__precio
+    @descuento.setter
+    def pprecio(self, nPrecio):
+        self.__precio=nPrecio
+
+    @property
     def horario(self):
         return self.__horario
 
@@ -66,6 +74,7 @@ class Sala():
         cadena += '\nbutacas: ' + str(self.__butacas)
         cadena += '\npelicula: ' + self.__pelicula
         cadena += '\ndescuento: ' + str(self.__descuento)
+        cadena += '\nprecio: ' + str(self.__precio)
         cadena += '\nhorario: ' + self.__horario
         cadena += '\nnroButacas: ' + str(self.__nroButacasReservadas)
         return cadena
