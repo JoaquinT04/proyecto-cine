@@ -5,9 +5,11 @@ def crear_conexion():
     return conexion
 
 def consulta(conexion,consulta):
-    cursor= conexion.cursor()
-    cursor.execute(consulta)
-    conexion.commit()
+	cursor= conexion.cursor()
+	cursor.execute(consulta)
+	datos = cursor.fetchall()
+	conexion.commit()
+	return datos
 
 def cerrar(conexion):
 	conexion.close()
@@ -21,13 +23,13 @@ def generarDB():
 	Apellido TEXT(30) NOT NULL,
 	Super_Cliente BOOL NOT NULL,
 	reserva INTEGER,
-	FOREIGN KEY (reserva) REFERENCES Reserva(ID));"""),
+	FOREIGN KEY (reserva) REFERENCES Reserva(id_reserva));"""),
 	("""CREATE TABLE IF NOT EXISTS Historial (
 	UniqueID INTEGER PRIMARY KEY AUTOINCREMENT,
 	salaID INTEGER,
 	reservaID INTEGER,
 	FOREIGN KEY (salaID) REFERENCES Sala(id_sala),
-	FOREIGN KEY (reservaID) REFERENCES Reserva(ID));"""),
+	FOREIGN KEY (reservaID) REFERENCES Reserva(id_reserva));"""),
 	("""CREATE TABLE IF NOT EXISTS Butacas (
 	UniqueID INTEGER PRIMARY KEY AUTOINCREMENT,
 	salaID INTEGER,
@@ -42,11 +44,11 @@ def generarDB():
 	sala INTEGER,
 	pagoEfectuado INTEGER,
 	FOREIGN KEY (sala) REFERENCES Sala(id_sala),
-	FOREIGN KEY (pagoEfectuado) REFERENCES Metodos_de_pagos(id));"""),
+	FOREIGN KEY (pagoEfectuado) REFERENCES Metodos_de_pago(id));"""),
 	("""CREATE TABLE IF NOT EXISTS Sala(id_sala INTEGER PRIMARY KEY AUTOINCREMENT,
 	formato TEXT NOT NULL,
 	pelicula TEXT NOT NULL,
-	descuento FLOAT NOT NULL,
+	descuento INTEGER NOT NULL,
 	precio FLOTA NOT NULL,
 	horario TEXT NOT NULL,
 	nro_Butacas INTEGER NOT NULL,

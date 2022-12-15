@@ -1,3 +1,4 @@
+from clases import Sala
 class Salas():
     def __init__(self,listaSala=[]):
         self.__listaSalas=listaSala
@@ -7,22 +8,25 @@ class Salas():
         return self.__listaSalas
 
     def __str__(self):
+        cadena=""
         for l in self.__listaSalas:
-            cadena += l
-            cadena += "(----------------)"
+            cadena += str(l) + "\n"
+            cadena += "(----------------)" + "\n"
         return cadena
 
-def agregarSala():
-    pass
+    def agregarSala():
+        pass
 
-def eliminarSala():
-    pass
+    def eliminarSala():
+        pass
 
-def modificar():
-    pass
+    def modificar(idSala):
+        _id=idSala
+    
+        pass
 
-def buscarSala():
-    pass
+    def buscarSala():
+        pass
 
 
 
