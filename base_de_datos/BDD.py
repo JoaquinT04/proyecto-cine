@@ -1,34 +1,33 @@
 import sqlite3
 
-def crear_conexion(ruta):
-	conexion= sqlite3.connect(ruta)
-	return conexion
+def crear_conexion():
+    conexion= sqlite3.connect("base_de_datos\cineDB.db")
+    return conexion
 
 def consulta(conexion,consulta):
 	cursor= conexion.cursor()
 	cursor.execute(consulta)
-#	tabla = conexion.fetchall()
-#	return tabla
+	datos = cursor.fetchall()
+	conexion.commit()
+	return datos
 
 def cerrar(conexion):
 	conexion.close()
 
 def generarDB():
-	conexion= sqlite3.connect("cineDB.db")
+	conexion= sqlite3.connect("base_de_datos\cineDB.db")
 	cursor= conexion.cursor()
 	cmd=[("""CREATE TABLE IF NOT EXISTS Usuario (
 	DNI INTEGER PRIMARY KEY AUTOINCREMENT,
 	Nombre TEXT(30) NOT NULL,
 	Apellido TEXT(30) NOT NULL,
-	Super_Cliente BOOL NOT NULL,
-	reserva INTEGER,
-	FOREIGN KEY (reserva) REFERENCES Reserva(ID));"""),
+	Super_Cliente BOOL NOT NULL);"""),
 	("""CREATE TABLE IF NOT EXISTS Historial (
 	UniqueID INTEGER PRIMARY KEY AUTOINCREMENT,
 	salaID INTEGER,
 	reservaID INTEGER,
 	FOREIGN KEY (salaID) REFERENCES Sala(id_sala),
-	FOREIGN KEY (reservaID) REFERENCES Reserva(ID));"""),
+	FOREIGN KEY (reservaID) REFERENCES Reserva(id_reserva));"""),
 	("""CREATE TABLE IF NOT EXISTS Butacas (
 	UniqueID INTEGER PRIMARY KEY AUTOINCREMENT,
 	salaID INTEGER,
@@ -40,14 +39,17 @@ def generarDB():
 	descuento FLOAT);"""),
 	("""CREATE TABLE IF NOT EXISTS Reserva(
 	id_reserva INTEGER PRIMARY KEY AUTOINCREMENT,
+	monto FLOAT,
 	sala INTEGER,
+	id_usuario INTEGER,
 	pagoEfectuado INTEGER,
 	FOREIGN KEY (sala) REFERENCES Sala(id_sala),
-	FOREIGN KEY (pagoEfectuado) REFERENCES Metodos_de_pagos(id));"""),
+	FOREIGN KEY (id_usuario) REFERENCES Usuario(DNI),
+	FOREIGN KEY (pagoEfectuado) REFERENCES Metodos_de_pago(id));"""),
 	("""CREATE TABLE IF NOT EXISTS Sala(id_sala INTEGER PRIMARY KEY AUTOINCREMENT,
 	formato TEXT NOT NULL,
 	pelicula TEXT NOT NULL,
-	descuento FLOAT NOT NULL,
+	descuento INTEGER NOT NULL,
 	precio FLOTA NOT NULL,
 	horario TEXT NOT NULL,
 	nro_Butacas INTEGER NOT NULL,
@@ -63,9 +65,4 @@ def generarDB():
 	conexion.commit()
 	conexion.close()
 
-#generarDB()
-print(crear_conexion("cineDB.db"))
-
-#consulta_ = "insert into Descuentos values ('1','20');"
-#conexion = crear_conexion()
-#consulta(conexion,consulta_)
+generarDB()

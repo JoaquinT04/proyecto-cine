@@ -84,7 +84,7 @@ class Descuentos:
 		# print(conexion)
 		#Creo la consulta sql para modificar los datos de descuento del dia indicado
 		consulta = f"update descuentos set descuento = {nuevoDesc} where dia = {dia};"
-		BDD.consultaAll(conexion,consulta)
+		BDD.consulta(conexion,consulta)
 		BDD.cerrar(conexion)
 
 	def devolverDescuentoDia(self,dia):
@@ -94,6 +94,6 @@ class Descuentos:
 
 		conexion = BDD.crear_conexion()
 		consulta = f"select descuento from Descuentos where dia = {dia};"
-		descuento = BDD.consultaOne(conexion,consulta)[0]
+		descuento = BDD.consulta(conexion,consulta)[0][0]
 		BDD.cerrar(conexion)
 		return descuento
