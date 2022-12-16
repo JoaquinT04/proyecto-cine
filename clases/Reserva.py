@@ -1,9 +1,9 @@
 class Reserva():
     def __init__(self):
-        self.__id = None
-        self.__usuario = None
-        self.__sala = None
-        self.__pagoEfectuado = None
+      self.__id = None
+      self.__usuario = None
+      self.__sala = None
+      self.__pagoEfectuado = None
     
     @property
     def id(self):
@@ -31,11 +31,12 @@ class Reserva():
       self.__pagoEfectuado = nuevopagoEfectuado
     
     def __str__(self):
-        cadena = "ID: " + str(self.__id)
-        cadena += "\nUsuario: " + str(self.__usuario)
-        cadena += "\nSala: " + str(self.__sala)
-        cadena += "\nPago Efectuado: " + str(self.__pagoEfectuado)
-        return cadena
+      cadena = "ID: " + str(self.__id)
+      cadena += "\nUsuario: " + str(self.__usuario)
+      cadena += "\nSala: " + str(self.__sala)
+      cadena += "\nPago Efectuado: " + str(self.__pagoEfectuado)
+      return cadena
 
     def modificarReserva(self):
-        pass
+      pass
+

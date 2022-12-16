@@ -6,11 +6,19 @@ def crear_conexion():
     return conexion
 
 def consulta(conexion,consulta):
+<<<<<<< HEAD
     cursor= conexion.cursor()
     cursor.execute(consulta)
     datos = cursor.fetchall()
     conexion.commit()
     return datos
+=======
+	cursor= conexion.cursor()
+	cursor.execute(consulta)
+	datos = cursor.fetchall()
+	conexion.commit()
+	return datos
+>>>>>>> master
 
 def cerrar(conexion):
 	conexion.close()
@@ -22,15 +30,24 @@ def generarDB():
 	DNI INTEGER PRIMARY KEY AUTOINCREMENT,
 	Nombre TEXT(30) NOT NULL,
 	Apellido TEXT(30) NOT NULL,
+<<<<<<< HEAD
 	Super_Cliente BOOL NOT NULL,
 	reserva INTEGER,
 	FOREIGN KEY (reserva) REFERENCES Reserva(ID));"""),
+=======
+	Super_Cliente BOOL NOT NULL);"""),
+>>>>>>> master
 	("""CREATE TABLE IF NOT EXISTS Historial (
 	UniqueID INTEGER PRIMARY KEY AUTOINCREMENT,
-	salaID INTEGER,
-	reservaID INTEGER,
-	FOREIGN KEY (salaID) REFERENCES Sala(id_sala),
-	FOREIGN KEY (reservaID) REFERENCES Reserva(ID));"""),
+	documento INTEGER NOT NULL,
+	Nombre TEXT(30) NOT NULL,
+	Apellido TEXT(30) NOT NULL,
+	Super_Cliente BOOL NOT NULL,
+	pelicula TEXT (30) NOT NULL,
+	formato TEXT (30) NOT NULL,
+	fecha TEXT (30) NOT NULL,
+	horario TEXT (10) NOT NULL,
+	monto FLOAT NOT NULL);"""),
 	("""CREATE TABLE IF NOT EXISTS Butacas (
 	UniqueID INTEGER PRIMARY KEY AUTOINCREMENT,
 	salaID INTEGER,
@@ -42,14 +59,20 @@ def generarDB():
 	descuento FLOAT);"""),
 	("""CREATE TABLE IF NOT EXISTS Reserva(
 	id_reserva INTEGER PRIMARY KEY AUTOINCREMENT,
+<<<<<<< HEAD
+=======
+	monto FLOAT,
+>>>>>>> master
 	sala INTEGER,
+	id_usuario INTEGER,
 	pagoEfectuado INTEGER,
 	FOREIGN KEY (sala) REFERENCES Sala(id_sala),
-	FOREIGN KEY (pagoEfectuado) REFERENCES Metodos_de_pagos(id));"""),
+	FOREIGN KEY (id_usuario) REFERENCES Usuario(DNI),
+	FOREIGN KEY (pagoEfectuado) REFERENCES Metodos_de_pago(id));"""),
 	("""CREATE TABLE IF NOT EXISTS Sala(id_sala INTEGER PRIMARY KEY AUTOINCREMENT,
 	formato TEXT NOT NULL,
 	pelicula TEXT NOT NULL,
-	descuento FLOAT NOT NULL,
+	descuento INTEGER NOT NULL,
 	precio FLOTA NOT NULL,
 	horario TEXT NOT NULL,
 	nro_Butacas INTEGER NOT NULL,
@@ -65,6 +88,11 @@ def generarDB():
 	conexion.commit()
 	conexion.close()
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> e7c1921317f5b75be6d95c886fdee458107313ae
+=======
+
+#generarDB()
+>>>>>>> master
