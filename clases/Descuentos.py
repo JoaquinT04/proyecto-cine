@@ -90,10 +90,10 @@ class Descuentos:
 	def devolverDescuentoDia(self,dia):
 		#Verifico que se ingrese un número positivo para el dia
 		dia = self.__validarDia(dia)
-		print(dia)
-
 		conexion = BDD.crear_conexion()
 		consulta = f"select descuento from Descuentos where dia = {dia};"
 		descuento = BDD.consulta(conexion,consulta)[0][0]
 		BDD.cerrar(conexion)
 		return descuento
+
+	

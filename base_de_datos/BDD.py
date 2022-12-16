@@ -24,10 +24,15 @@ def generarDB():
 	Super_Cliente BOOL NOT NULL);"""),
 	("""CREATE TABLE IF NOT EXISTS Historial (
 	UniqueID INTEGER PRIMARY KEY AUTOINCREMENT,
-	salaID INTEGER,
-	reservaID INTEGER,
-	FOREIGN KEY (salaID) REFERENCES Sala(id_sala),
-	FOREIGN KEY (reservaID) REFERENCES Reserva(id_reserva));"""),
+	documento INTEGER NOT NULL,
+	Nombre TEXT(30) NOT NULL,
+	Apellido TEXT(30) NOT NULL,
+	Super_Cliente BOOL NOT NULL,
+	pelicula TEXT (30) NOT NULL,
+	formato TEXT (30) NOT NULL,
+	fecha TEXT (30) NOT NULL,
+	horario TEXT (10) NOT NULL,
+	monto FLOAT NOT NULL);"""),
 	("""CREATE TABLE IF NOT EXISTS Butacas (
 	UniqueID INTEGER PRIMARY KEY AUTOINCREMENT,
 	salaID INTEGER,
@@ -65,4 +70,4 @@ def generarDB():
 	conexion.commit()
 	conexion.close()
 
-generarDB()
+#generarDB()

@@ -24,6 +24,7 @@ class Administrado():
 		pass
 
 	def verSalas():
+		
 		pass
 
 	def modificarDescuentos():
