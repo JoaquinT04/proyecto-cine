@@ -3,6 +3,9 @@ from clases import Sala
 from clases import Salas
 from clases import Historial
 from clases import Descuentos
+
+#Prueba Sala/Salas
+
 # p=Sala.BDD.crear_conexion()
 # #consul="SELECT * FROM Sala WHERE id_sala = 1;"
 # #a=Sala.BDD.consulta(p,consul)
@@ -38,15 +41,17 @@ from clases import Descuentos
 # desc = Descuentos.Descuentos()
 
 # desc.modificarDescuento()
-# print(desc.devolverDescuentoDia(10))
+# for i in range(1,8):
+# 	print(desc.devolverDescuentoDia(i))
+	
 
 #Cargando la base de datos
+# Agrego datos Descuentos
 # conexion = BDD.crear_conexion()
+# consulta_ = "insert into Descuentos values ('1','20'),('2','15'),('3','20'),('4','15'),('5','10'),('6','10'),('7','10');"
 # BDD.consulta(conexion,consulta_)
 # BDD.cerrar(conexion)
 
-#Agrego datos Descuentos
-# consulta_ = "insert into Descuentos values ('1','20'),('2','15'),('3','20'),('4','15'),('5','10'),('6','10'),('7','10');"
 
 
 
