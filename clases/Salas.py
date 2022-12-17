@@ -71,11 +71,12 @@ class Salas():
         desc=Descuentos.Descuentos()
         self.__descuento=desc._Descuentos__validarDia(input("ingrese un dia del 1 al 7 "))
         self.__precio=float(input("ingrese precio de la entrada "))
+        self.__fecha=input("ingrese fecha de la funbcion en formato dd/mm/aa")
         self.__horario=input("ingrese horario en formato HH:MM ")
         print("ESTOS DATOS SON CORRECTOS? ")
         _r=input("para confirmar escriba Y , cualquier otro caracter para cancelar ")
         if _r == "Y":
-            consulta=f"INSERT INTO Sala VALUES (NULL,'{self.__formato}','{self.__pelicula}','{self.__descuento}','{self.__precio}','{self.__horario}','{self.__butacas}');"
+            consulta=f"INSERT INTO Sala VALUES (NULL,'{self.__formato}','{self.__pelicula}','{self.__descuento}','{self.__precio}','{self.__fecha}','{self.__horario}','{self.__butacas}');"
             print(consulta)
             conexion=BDD.crear_conexion()
             mSala=BDD.consulta(conexion,consulta)
