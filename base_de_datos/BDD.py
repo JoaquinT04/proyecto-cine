@@ -23,7 +23,8 @@ def generarDB():
 	DNI INTEGER PRIMARY KEY AUTOINCREMENT,
 	Nombre TEXT(30) NOT NULL,
 	Apellido TEXT(30) NOT NULL,
-	Super_Cliente BOOL NOT NULL);"""),
+	Super_Cliente BOOL NOT NULL,
+	Contrasenia TEXT(20) NOT NULL);"""),
 	("""CREATE TABLE IF NOT EXISTS Historial (
 	UniqueID INTEGER PRIMARY KEY AUTOINCREMENT,
 	documento INTEGER NOT NULL,

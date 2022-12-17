@@ -1,4 +1,5 @@
 from base_de_datos import BDD
+
 class Sala():
     def __init__(self,id=None,formato=None,pelicula=None,descuento=None,precio=None,horario=None,butacas=None,nro=None):
         self.__id=id
@@ -100,7 +101,7 @@ class Sala():
         self.butacas=int(input("ingrese cantidad de butacas "))
         self.pelicula=input("ingrese nombre de la pelicula ")
         self.descuento=int(input("ingrese indice del descuento 1 a 7 "))
-        self.precio=float(input("ingrese precion de la entrada "))
+        self.precio=float(input("ingrese precio de la entrada "))
         self.horario=input("ingrese horario en formato HH:MM ")
         print("ESTOS DATOS SON CORRECTOS? ")
         _r=input("para confirmar escriba Y , cualquier otro caracter para cancelar ")

@@ -55,7 +55,11 @@ from clases import Descuentos
 # BDD.consulta(conexion,consulta_)
 # BDD.cerrar(conexion)
 
-
+#Agrego datos a Sala
+# conexion = BDD.crear_conexion()
+# consulta_ = "INSERT INTO Sala VALUES ('1', '2d', 'Pelicula 1', '0', '300', '18:00', '50'),('2', '2d', 'Pelicula 2', '0', '300', '18:00', '50'),('3', '2d', 'Pelicula 3', '0', '300', '18:00', '50');"
+# BDD.consulta(conexion,consulta_)
+# BDD.cerrar(conexion)
 
 #Prueba Historial
 
@@ -66,7 +70,46 @@ from clases import Descuentos
 # BDD.cerrar(conexion)
 
 
-histo = Historial.Historial()
-histo.validarTarjeta('123123123')
+#histo = Historial.Historial()
+#histo.validarTarjeta('123123123')
 # id_Reserva= 0
 # histo.buscarUsuario(id_Reserva)
+
+import tkinter 
+
+from tkinter import ttk, Button, Frame, messagebox, Tk
+from login import Login
+from registro import CrearCuenta
+
+class App(Frame):
+    
+    def __init__(self, root):
+        super().__init__(root)
+        self.root=root
+        self.grid()
+        self.crear_widgets()
+        
+        
+    def crear_widgets(self):
+        self.button= Button(self)
+        self.button["text"] = "Login"
+        self.button["command"] = self.abrir_login 
+        self.button.grid(padx=50, pady=15)
+        
+        self.button1= Button(self)
+        self.button1["text"] = "Registro"
+        self.button1["command"] = self.abrir_registro 
+        self.button1.grid(padx=50, pady=15)
+        
+        
+    def abrir_login(self):
+        Login(self.root)
+        
+    
+    def abrir_registro(self):
+       CrearCuenta(self.root)
+        
+
+root=Tk()
+app= App(root)
+app.mainloop()

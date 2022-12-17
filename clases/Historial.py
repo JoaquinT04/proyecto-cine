@@ -27,9 +27,9 @@ class Historial():
         return cadena
     
 
-    def __rangoTiempo(self,fechaInicial):
-      #TE devuelve una fecha final
-      pass
+    # def __rangoTiempo(self,fechaInicial):
+    #   #TE devuelve una fecha final
+    #   pass
 
     def buscarUsuario(self, idUsuario):
       conexion = BDD.crear_conexion()
