@@ -21,7 +21,8 @@ def generarDB():
 	DNI INTEGER PRIMARY KEY,
 	Nombre TEXT(30) NOT NULL,
 	Apellido TEXT(30) NOT NULL,
-	Super_Cliente BOOL NOT NULL);"""),
+	Super_Cliente BOOL NOT NULL,
+	Contrasenia TEXT(30));"""),
 	("""CREATE TABLE IF NOT EXISTS Historial (
 	UniqueID INTEGER PRIMARY KEY AUTOINCREMENT,
 	documento INTEGER NOT NULL,
@@ -47,20 +48,19 @@ def generarDB():
 	monto FLOAT,
 	sala INTEGER,
 	id_usuario INTEGER,
-	pagoEfectuado INTEGER,
 	FOREIGN KEY (sala) REFERENCES Sala(id_sala),
-	FOREIGN KEY (id_usuario) REFERENCES Usuario(DNI),
-	FOREIGN KEY (pagoEfectuado) REFERENCES Metodos_de_pago(id));"""),
+	FOREIGN KEY (id_usuario) REFERENCES Usuario(DNI));"""),
 	("""CREATE TABLE IF NOT EXISTS Sala(id_sala INTEGER PRIMARY KEY,
 	formato TEXT NOT NULL,
 	pelicula TEXT NOT NULL,
 	descuento INTEGER NOT NULL,
 	precio FLOTA NOT NULL,
+	fecha TEXT NOT NULL,
 	horario TEXT NOT NULL,
 	nro_Butacas INTEGER NOT NULL,
 	FOREIGN KEY (descuento) REFERENCES Descuentos(dia));"""),
 	("""CREATE TABLE IF NOT EXISTS Metodos_de_pago (
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	id INTEGER PRIMARY KEY,
 	opcionesdepago TEXT(100));""")]
 	for c in cmd:
 		#print(c)
