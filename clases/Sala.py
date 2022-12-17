@@ -100,7 +100,7 @@ class Sala():
         self.butacas=int(input("ingrese cantidad de butacas "))
         self.pelicula=input("ingrese nombre de la pelicula ")
         self.descuento=int(input("ingrese indice del descuento 1 a 7 "))
-        self.precio=float(input("ingrese precion de la entrada "))
+        self.precio=float(input("ingrese precio de la entrada "))
         self.horario=input("ingrese horario en formato HH:MM ")
         print("ESTOS DATOS SON CORRECTOS? ")
         _r=input("para confirmar escriba Y , cualquier otro caracter para cancelar ")

@@ -1,6 +1,6 @@
 from base_de_datos import BDD
 from clases import Sala
-from clases import Salas
+from clases import Salas #¡comentar esta importacon cuando quiean regenerar la base de datos!
 from clases import Historial
 from clases import Descuentos
 # p=Sala.BDD.crear_conexion()
@@ -14,11 +14,10 @@ from clases import Descuentos
 # #print(c)
 # #c.modificarSala()
 
-# #print(c)
 
-# #c=Sala.Sala(0,"7d",10,"la chancla voladora",1,600,"16:30",3) #creacion manual del objeto sala, solo para pruevas
-# #print(c)
-# #c.verReservas()
+#c=Sala.Sala(3,"7d",10,"la chancla voladora",1,600,"16:30") #creacion manual del objeto sala, solo para pruevas
+# print(c)
+#c.verReservas()
 # #print(c.verReservas())
 # #c.modificarSala()
 
@@ -26,39 +25,44 @@ from clases import Descuentos
 # consul="SELECT * FROM Sala;"
 # a=Sala.BDD.consulta(p,consul)
 # Sala.BDD.cerrar(p)
-# lS=Salas.Salas(a)
-# print(lS)
-
-
-
+#lS=Salas.Salas()
+#print(lS)
+#lS.buscarSala()
+#print(lS)
+#lS.agregarSala()
+#lS.modificar(5)
+#lS.eliminarSala(4)
+#BDD.generarDB()
 
 #Prueba de Descuentos
-
-
 # desc = Descuentos.Descuentos()
 
 # desc.modificarDescuento()
 # print(desc.devolverDescuentoDia(10))
 
 #Cargando la base de datos
-# conexion = BDD.crear_conexion()
-# BDD.consulta(conexion,consulta_)
-# BDD.cerrar(conexion)
+#conexion = BDD.crear_conexion()
+#BDD.consulta(conexion,consulta_)
+#BDD.cerrar(conexion)
 
 #Agrego datos Descuentos
-# consulta_ = "insert into Descuentos values ('1','20'),('2','15'),('3','20'),('4','15'),('5','10'),('6','10'),('7','10');"
+#consulta_ = "insert into Descuentos values ('1','20'),('2','15'),('3','20'),('4','15'),('5','10'),('6','10'),('7','10');"
 
+#Agrego datos Sala
+#consulta_ = "insert into Sala values (NULL,'3d','la chancla voladora','1','600','16:30','10'),(NULL,'2d','Pizza Warfare Z','1','200','7:00','100');"
 
-
+#conexion = BDD.crear_conexion()
+#BDD.consulta(conexion,consulta_)
+#BDD.cerrar(conexion)
 
 
 #Prueba Historial
 
 #Agrego datos a Historial
-# conexion = BDD.crear_conexion()
-# consulta_ = "insert into Historial values ('0','123123123','Nombre','Apellido','0','Nombre Peli','3d','12/12/2022','18:00','300.00'),('1','11231231','Joaquin','Qasda','1','Pelicula112','2d','04/11/2022','17:20','200.00');"
-# BDD.consulta(conexion,consulta_)
-# BDD.cerrar(conexion)
+#conexion = BDD.crear_conexion()
+#consulta_ = "insert into Historial values (NULL,'123123123','Nombre','Apellido','0','Nombre Peli','3d','12/12/2022','18:00','300.00'),(NULL,'11231231','Joaquin','Qasda','1','Pelicula112','2d','04/11/2022','17:20','200.00');"
+#BDD.consulta(conexion,consulta_)
+#BDD.cerrar(conexion)
 
 
 # histo = Historial.Historial()
