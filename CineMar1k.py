@@ -48,7 +48,12 @@ from clases import Descuentos
 #Agrego datos Descuentos
 # consulta_ = "insert into Descuentos values ('1','20'),('2','15'),('3','20'),('4','15'),('5','10'),('6','10'),('7','10');"
 
-
+#Agrego datos a Usuario
+# conexion = BDD.crear_conexion()
+# # consulta_ = "insert into Usuario values ('123123123','Nombre','Apellido','0'),('11231231', 'Joaquin', 'Qasda', '1');"
+# consulta_ = "UPDATE Historial SET fecha = '28/06/2023' WHERE UniqueID = 6"
+# BDD.consulta(conexion,consulta_)
+# BDD.cerrar(conexion)
 
 
 
@@ -56,12 +61,12 @@ from clases import Descuentos
 
 #Agrego datos a Historial
 # conexion = BDD.crear_conexion()
-# consulta_ = "insert into Historial values ('0','123123123','Nombre','Apellido','0','Nombre Peli','3d','12/12/2022','18:00','300.00'),('1','11231231','Joaquin','Qasda','1','Pelicula112','2d','04/11/2022','17:20','200.00');"
+# consulta_ = "insert into Historial values ('2','123123123','Nombre','Apellido','0','Nombre Peli2','2d','22/12/2022','18:00','200.00'),('3','123123123','Nombre','Apellido','0','Nombre Peli3','3d','30/12/2022','18:00','300.00'),('4','123123123','Nombre','Apellido','0','Nombre Pel4','3d','07/02/2022','18:00','300.00'),('5','123123123','Nombre','Apellido','0','Nombre Peli5','3d','24/04/2022','18:00','300.00'),('6','123123123','Nombre','Apellido','0','Nombre Peli6','3d','28/06/2022','18:00','300.00');"
 # BDD.consulta(conexion,consulta_)
 # BDD.cerrar(conexion)
 
 
-# histo = Historial.Historial()
-# histo.validarTarjeta('111')
+histo = Historial.Historial()
+histo.validarTarjeta('123123123')
 # id_Reserva= 0
 # histo.buscarUsuario(id_Reserva)

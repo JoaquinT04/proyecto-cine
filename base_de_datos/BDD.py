@@ -6,19 +6,12 @@ def crear_conexion():
     return conexion
 
 def consulta(conexion,consulta):
-<<<<<<< HEAD
-    cursor= conexion.cursor()
-    cursor.execute(consulta)
-    datos = cursor.fetchall()
-    conexion.commit()
-    return datos
-=======
 	cursor= conexion.cursor()
 	cursor.execute(consulta)
 	datos = cursor.fetchall()
 	conexion.commit()
 	return datos
->>>>>>> master
+
 
 def cerrar(conexion):
 	conexion.close()
@@ -30,13 +23,7 @@ def generarDB():
 	DNI INTEGER PRIMARY KEY AUTOINCREMENT,
 	Nombre TEXT(30) NOT NULL,
 	Apellido TEXT(30) NOT NULL,
-<<<<<<< HEAD
-	Super_Cliente BOOL NOT NULL,
-	reserva INTEGER,
-	FOREIGN KEY (reserva) REFERENCES Reserva(ID));"""),
-=======
 	Super_Cliente BOOL NOT NULL);"""),
->>>>>>> master
 	("""CREATE TABLE IF NOT EXISTS Historial (
 	UniqueID INTEGER PRIMARY KEY AUTOINCREMENT,
 	documento INTEGER NOT NULL,
@@ -59,10 +46,7 @@ def generarDB():
 	descuento FLOAT);"""),
 	("""CREATE TABLE IF NOT EXISTS Reserva(
 	id_reserva INTEGER PRIMARY KEY AUTOINCREMENT,
-<<<<<<< HEAD
-=======
 	monto FLOAT,
->>>>>>> master
 	sala INTEGER,
 	id_usuario INTEGER,
 	pagoEfectuado INTEGER,
@@ -87,12 +71,6 @@ def generarDB():
 
 	conexion.commit()
 	conexion.close()
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> e7c1921317f5b75be6d95c886fdee458107313ae
-=======
 
-#generarDB()
->>>>>>> master
+generarDB()
