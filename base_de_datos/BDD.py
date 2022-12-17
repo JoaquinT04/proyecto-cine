@@ -36,7 +36,7 @@ def generarDB():
 	("""CREATE TABLE IF NOT EXISTS Butacas (
 	UniqueID INTEGER PRIMARY KEY,
 	salaID INTEGER,
-	estado BOOL,
+	estado INTEGER,
 	FOREIGN KEY (salaID) REFERENCES Sala(id_sala),
 	FOREIGN KEY (estado) REFERENCES Usuario(DNI));"""),
 	("""CREATE TABLE IF NOT EXISTS Descuentos (

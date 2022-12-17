@@ -1,6 +1,17 @@
 from clases import Sala
 from clases import Descuentos
 from base_de_datos import BDD
+from clases import Butacas
+import os
+
+class miError(Exception):
+	def __init__(self, msj) :
+		self.__msj = msj
+	
+	@property
+	def msj(self):
+		return self.__msj
+
 class Salas():
     p=Sala.BDD.crear_conexion()
     consul="SELECT * FROM Sala;"
@@ -19,12 +30,46 @@ class Salas():
             cadena += "(----------------)" + "\n"
         return cadena
 
-    def agregarSala(self):
+    def validarSala(self,id = None):
+        p=Sala.BDD.crear_conexion()
+        while True:
+            try:
+                if id == None:
+                    id = int(input("Ingrese un id: "))
+                else:
+                    #Para lanzar error ValueError si es un caracter
+                    id =int(id)
+
+                if id<=0:
+                    raise miError("Ingreso un id no valido!")
+
+                consul=f"SELECT * FROM Sala WHERE id_sala = {id};"
+                a=Sala.BDD.consulta(p,consul)
+
+                if not a==[]:
+                    raise miError("Ingreso un id no valido!")
+                break
+
+            except miError as err:
+                print(err.msj)
+                input()
+                os.system("cls")  
+                id = input("Ingrese un id: ")
+            except ValueError :
+                print("No se pueden ingresar letras o caracteres!")
+                input()
+                os.system("cls")  
+                id = input("Ingrese un id: ")
+        Sala.BDD.cerrar(p)
+        return id
+
+    def agregarSala(self,id=input("ingrese el id ")):
+        self.__idSala=self.validarSala(id)
         self.__formato=input("ingrese formato 2d o 3d ")
         self.__butacas=input("ingrese cantidad de butacas ")
         self.__pelicula=input("ingrese nombre de la pelicula ")
         desc=Descuentos.Descuentos()
-        self.__descuento=desc._Descuentos__validarDia(input("1 al 7"))
+        self.__descuento=desc._Descuentos__validarDia(input("ingrese un dia del 1 al 7 "))
         self.__precio=float(input("ingrese precio de la entrada "))
         self.__horario=input("ingrese horario en formato HH:MM ")
         print("ESTOS DATOS SON CORRECTOS? ")
@@ -36,6 +81,8 @@ class Salas():
             mSala=BDD.consulta(conexion,consulta)
             BDD.cerrar(conexion)
             print("registro modificado")
+            for i in range(self.__butacas):
+                b=Butacas.Butacas.crearButaca(self.__idSala)
             return "registro actualizado"
 
         else:
