@@ -18,10 +18,11 @@ def generarDB():
 	conexion= sqlite3.connect("base_de_datos\cineDB.db")
 	cursor= conexion.cursor()
 	cmd=[("""CREATE TABLE IF NOT EXISTS Usuario (
-	DNI INTEGER PRIMARY KEY AUTOINCREMENT,
+	DNI INTEGER PRIMARY KEY,
 	Nombre TEXT(30) NOT NULL,
 	Apellido TEXT(30) NOT NULL,
-	Super_Cliente BOOL NOT NULL);"""),
+	Super_Cliente INTEGER NOT NULL,
+	Contrasenia TEXT(30));"""),
 	("""CREATE TABLE IF NOT EXISTS Historial (
 	UniqueID INTEGER PRIMARY KEY AUTOINCREMENT,
 	documento INTEGER NOT NULL,
@@ -34,33 +35,32 @@ def generarDB():
 	horario TEXT (10) NOT NULL,
 	monto FLOAT NOT NULL);"""),
 	("""CREATE TABLE IF NOT EXISTS Butacas (
-	UniqueID INTEGER PRIMARY KEY AUTOINCREMENT,
+	UniqueID INTEGER PRIMARY KEY,
 	salaID INTEGER,
-	estado BOOL,
+	estado INTEGER,
 	FOREIGN KEY (salaID) REFERENCES Sala(id_sala),
 	FOREIGN KEY (estado) REFERENCES Usuario(DNI));"""),
 	("""CREATE TABLE IF NOT EXISTS Descuentos (
-	dia INTEGER PRIMARY KEY ,
+	dia INTEGER PRIMARY KEY,
 	descuento FLOAT);"""),
 	("""CREATE TABLE IF NOT EXISTS Reserva(
-	id_reserva INTEGER PRIMARY KEY AUTOINCREMENT,
+	id_reserva INTEGER PRIMARY KEY,
 	monto FLOAT,
 	sala INTEGER,
 	id_usuario INTEGER,
-	pagoEfectuado INTEGER,
 	FOREIGN KEY (sala) REFERENCES Sala(id_sala),
-	FOREIGN KEY (id_usuario) REFERENCES Usuario(DNI),
-	FOREIGN KEY (pagoEfectuado) REFERENCES Metodos_de_pago(id));"""),
-	("""CREATE TABLE IF NOT EXISTS Sala(id_sala INTEGER PRIMARY KEY AUTOINCREMENT,
+	FOREIGN KEY (id_usuario) REFERENCES Usuario(DNI));"""),
+	("""CREATE TABLE IF NOT EXISTS Sala(id_sala INTEGER PRIMARY KEY,
 	formato TEXT NOT NULL,
 	pelicula TEXT NOT NULL,
 	descuento INTEGER NOT NULL,
 	precio FLOTA NOT NULL,
+	fecha TEXT NOT NULL,
 	horario TEXT NOT NULL,
 	nro_Butacas INTEGER NOT NULL,
 	FOREIGN KEY (descuento) REFERENCES Descuentos(dia));"""),
 	("""CREATE TABLE IF NOT EXISTS Metodos_de_pago (
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	id INTEGER PRIMARY KEY,
 	opcionesdepago TEXT(100));""")]
 	for c in cmd:
 		#print(c)
@@ -70,4 +70,4 @@ def generarDB():
 	conexion.commit()
 	conexion.close()
 
-# generarDB()
+generarDB()

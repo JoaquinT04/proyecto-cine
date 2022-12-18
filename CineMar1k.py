@@ -3,6 +3,7 @@ from clases import Sala
 from clases import Salas
 from clases import Historial
 from clases import Descuentos
+from clases import Butacas
 
 #Prueba Sala/Salas
 
@@ -70,3 +71,26 @@ from clases import Descuentos
 # histo.validarTarjeta('111')
 # id_Reserva= 0
 # histo.buscarUsuario(id_Reserva)
+
+#Prueba Butacas
+#Agrego contenido a Butacas
+# butacas = Butacas.Butacas()
+# butacas.crearButaca(1)
+# butacas.modificarButaca(3,"NULL")
+# butacas.modificarButaca(4,3412421)
+# butacas.modificarButaca(4,"NULL")
+# butacas.modificarButacaSala(1,"NULL")
+# butacas.eliminarButacasSala(1)
+# conexion = BDD.crear_conexion()
+# consulta_ = "insert into Butacas values ;"
+# BDD.consulta(conexion,consulta_)
+# BDD.cerrar(conexion)
+
+
+
+#Agrego contenido a Sala
+
+# conexion = BDD.crear_conexion()
+# consulta_ = "insert into Sala values ;"
+# BDD.consulta(conexion,consulta_)
+# BDD.cerrar(conexion)

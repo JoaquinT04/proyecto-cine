@@ -1,12 +1,13 @@
 from base_de_datos import BDD
 class Sala():
-    def __init__(self,id=None,formato=None,pelicula=None,descuento=None,precio=None,horario=None,butacas=None,nro=None):
+    def __init__(self,id=None,formato=None,pelicula=None,descuento=None,precio=None,frcha=None,horario=None,butacas=None,nro=None):
         self.__id=id
         self.__formato=formato
         self.__butacas=butacas
         self.__pelicula=pelicula
         self.__descuento=descuento
         self.__precio=precio
+        self.__fecha #dd/mm/aa
         self.__horario=horario #hh:mm
         self.__nroButacasReservadas=nro
 
@@ -66,6 +67,14 @@ class Sala():
         self.__hiorario=nHorario
 
     @property
+    def fecha(self):
+        return self.__fecha
+
+    @fecha.setter
+    def fecha(self, nFecha):
+        self.__fecha=nFecha
+
+    @property
     def nroButacasReservadas(self):
         return self.__nroButacasReservadas
 
@@ -80,6 +89,7 @@ class Sala():
         cadena += '\npelicula: ' + str(self.__pelicula)
         cadena += '\ndescuento: ' + str(self.__descuento)
         cadena += '\nprecio: ' + str(self.__precio)
+        cadena += '\nfecha: ' + str(self.__fecha)
         cadena += '\nhorario: ' + str(self.__horario)
         cadena += '\nnroButacas reservadas: ' + str(self.__nroButacasReservadas)
         return cadena
@@ -100,12 +110,13 @@ class Sala():
         self.butacas=int(input("ingrese cantidad de butacas "))
         self.pelicula=input("ingrese nombre de la pelicula ")
         self.descuento=int(input("ingrese indice del descuento 1 a 7 "))
-        self.precio=float(input("ingrese precion de la entrada "))
+        self.precio=float(input("ingrese precio de la entrada "))
+        self.fecha=input("ingrese fecha en formato dd/mm/aa ")
         self.horario=input("ingrese horario en formato HH:MM ")
         print("ESTOS DATOS SON CORRECTOS? ")
         _r=input("para confirmar escriba Y , cualquier otro caracter para cancelar ")
         if _r == "Y":
-            consulta=f"UPDATE Sala SET formato = '{self.formato}', pelicula = '{self.pelicula}', descuento = '{self.descuento}', precio = '{self.precio}', horario = '{self.horario}', nro_Butacas = '{self.butacas}' WHERE id_sala = {self.id};"
+            consulta=f"UPDATE Sala SET formato = '{self.formato}', pelicula = '{self.pelicula}', descuento = '{self.descuento}', precio = '{self.precio}', fecha = '{self.fecha}', horario = '{self.horario}', nro_Butacas = '{self.butacas}' WHERE id_sala = {self.id};"
             #print(consulta)
             conexion=BDD.crear_conexion()
             mSala=BDD.consulta(conexion,consulta)
