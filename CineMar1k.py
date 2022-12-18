@@ -75,6 +75,9 @@ from clases import Butacas
 #Prueba Butacas
 #Agrego contenido a Butacas
 # butacas = Butacas.Butacas()
+lS=Salas.Salas()
+# print(lS)
+lS.agregarSala()
 # butacas.crearButaca(1)
 # butacas.modificarButaca(3,"NULL")
 # butacas.modificarButaca(4,3412421)
