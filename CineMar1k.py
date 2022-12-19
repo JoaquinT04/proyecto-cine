@@ -5,7 +5,7 @@ from clases import Historial
 from clases import Descuentos
 from clases import Butacas
 from clases import Reservas
-
+from clases.Usuario import Usuario
 #Prueba Sala/Salas
 
 # p=Sala.BDD.crear_conexion()
@@ -110,6 +110,21 @@ from clases import Reservas
 # BDD.cerrar(conexion)
 
 #Prueba de Reservas
-reserva = Reservas.Reservas()
-# reserva.agregarReserva(1,123123)
-reserva.eliminarReserva()
+# reserva = Reservas.Reservas()
+# reserva.agregarReserva(2,123123)
+# reserva.eliminarReserva(2) 
+# print(reserva.buscarXUsuario(123123))
+
+#Prueba de Usuario
+# user = Usuario()
+# # user.crearUsuario(321321,"Joaquin","Otro Apellido","MiContrasenia")
+# # user.crearUsuario(512312412,"Joaquin","Otro Apellido","MiContrasenia")
+# # user.eliminarUsuario(512312412,"MiContrasenia")
+# # user.modificarUsuario(321321)
+# # print(user.verUsuarios())
+# print(user.ingresar(123123,"contrasenia"))
+# # print(user)
+# # user.borrarReserva()
+# # print(user.verReserva())
+# # print(user.verSalas())
+# print(user.pedirTarjeta())

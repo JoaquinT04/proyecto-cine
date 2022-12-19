@@ -48,6 +48,7 @@ def generarDB():
 	monto FLOAT,
 	sala INTEGER,
 	id_usuario INTEGER,
+	butaca BOOL,
 	FOREIGN KEY (sala) REFERENCES Sala(id_sala),
 	FOREIGN KEY (id_usuario) REFERENCES Usuario(DNI));"""),
 	("""CREATE TABLE IF NOT EXISTS Sala(id_sala INTEGER PRIMARY KEY,

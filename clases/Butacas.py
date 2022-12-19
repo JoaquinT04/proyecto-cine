@@ -81,7 +81,7 @@ class Butacas():
     if estado != "NULL":
       consulta_ = f"select * from Butacas where estado= {estado} and salaID = {idSala}"
     else:
-      consulta_ = f"select * from Butacas where estado= NULL and salaID = {idSala}"
+      consulta_ = f"select * from Butacas where estado IS NULL and salaID = {idSala}"
     salas = BDD.consulta(conexion,consulta_)
     BDD.cerrar(conexion)
     return salas
