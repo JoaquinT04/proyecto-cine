@@ -55,9 +55,10 @@ from clases import Descuentos
 # BDD.consulta(conexion,consulta_)
 # BDD.cerrar(conexion)
 
-#Agrego datos a Sala
+# #Agrego datos a Sala
 # conexion = BDD.crear_conexion()
-# consulta_ = "INSERT INTO Sala VALUES ('1', '2d', 'Pelicula 1', '0', '300', '18:00', '50'),('2', '2d', 'Pelicula 2', '0', '300', '18:00', '50'),('3', '2d', 'Pelicula 3', '0', '300', '18:00', '50');"
+# consulta_ = "INSERT INTO Sala VALUES ('4', '2d', 'Pelicula 1', '0', '300', '18:00', '50');"
+# #consulta_ = "DELETE FROM Sala WHERE id_sala = 4"
 # BDD.consulta(conexion,consulta_)
 # BDD.cerrar(conexion)
 
