@@ -64,9 +64,9 @@ class Salas():
         return id
 
     def agregarSala(self):
-        self.__idSala=self.validarSala(input("ingrese el id para la nueva sala"))
+        self.__idSala=self.validarSala(id=input("ingrese el id "))
         self.__formato=input("ingrese formato 2d o 3d ")
-        self.__butacas=input("ingrese cantidad de butacas ")
+        self.__butacas=int(input("ingrese cantidad de butacas "))
         self.__pelicula=input("ingrese nombre de la pelicula ")
         desc=Descuentos.Descuentos()
         self.__descuento=desc._Descuentos__validarDia(input("ingrese un dia del 1 al 7 "))
@@ -76,14 +76,15 @@ class Salas():
         print("ESTOS DATOS SON CORRECTOS? ")
         _r=input("para confirmar escriba Y , cualquier otro caracter para cancelar ")
         if _r == "Y":
-            consulta=f"INSERT INTO Sala VALUES ('{self.__idSala}','{self.__formato}','{self.__pelicula}','{self.__descuento}','{self.__precio}','{self.__fecha}','{self.__horario}','{self.__butacas}');"
+            consulta=f"INSERT INTO Sala VALUES ({self.__idSala},'{self.__formato}','{self.__pelicula}','{self.__descuento}','{self.__precio}','{self.__fecha}','{self.__horario}','{self.__butacas}');"
             print(consulta)
             conexion=BDD.crear_conexion()
             mSala=BDD.consulta(conexion,consulta)
             BDD.cerrar(conexion)
             print("registro modificado")
-            #for i in range(self.__butacas):
-             #   b=Butacas.Butacas.crearButaca(self.__idSala)
+            for i in range(self.__butacas):
+                b=Butacas.Butacas()
+                b.crearButaca(self.__idSala)
             return "registro actualizado"
 
         else:
@@ -101,6 +102,8 @@ class Salas():
             a=Sala.BDD.consulta(p,consul)
             Sala.BDD.cerrar(p)
             print("datos de la sala eliminados")
+            b=Butacas.Butacas()
+            b.eliminarButacasSala(_id)
             return "sala borrada"
         else:
             print("operacion cancelada")
@@ -112,6 +115,7 @@ class Salas():
         consul=f"SELECT * FROM Sala WHERE id_sala = {_id};"
         a=Sala.BDD.consulta(p,consul)
         Sala.BDD.cerrar(p)
+        print("consulta:",a)
         c=Sala.Sala(a[0][0],a[0][1],a[0][2],a[0][3],a[0][4],a[0][5],a[0][6],a[0][7])
         c.modificarSala()
 
@@ -122,8 +126,3 @@ class Salas():
         a=Sala.BDD.consulta(p,consul)
         Sala.BDD.cerrar(p)
         self.__listaSalas=a
-
-
-
-
-

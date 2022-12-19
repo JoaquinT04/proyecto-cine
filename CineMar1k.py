@@ -40,7 +40,8 @@ ad=Administrador.Administrado()
 #ad.crearSala()
 #ad.verSalas()
 #ad.modificaSala()
-ad.modificarDescuentos()
+#ad.modificarDescuentos()
+
 #Prueba de Descuentos
 # desc = Descuentos.Descuentos()
 

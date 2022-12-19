@@ -1,4 +1,5 @@
 from base_de_datos import BDD
+from clases.Descuentos import Descuentos
 class Sala():
     def __init__(self,id=None,formato=None,pelicula=None,descuento=None,precio=None,fecha=None,horario=None,butacas=None,nro=None):
         self.__id=id
@@ -7,7 +8,7 @@ class Sala():
         self.__pelicula=pelicula
         self.__descuento=descuento
         self.__precio=precio
-        self.__fecha= fecha #dd/mm/aa
+        self.__fecha = fecha #dd/mm/aa
         self.__horario=horario #hh:mm
         self.__nroButacasReservadas=nro
 
@@ -64,7 +65,7 @@ class Sala():
 
     @horario.setter
     def horario(self, nHorario):
-        self.__hiorario=nHorario
+        self.__horario=nHorario
 
     @property
     def fecha(self):
@@ -105,18 +106,18 @@ class Sala():
 
 
     def modificarSala(self):
+        desc = Descuentos()
         print(self)
         self.formato=input("ingrese formato 2d o 3d ")
-        self.butacas=int(input("ingrese cantidad de butacas "))
         self.pelicula=input("ingrese nombre de la pelicula ")
-        self.descuento=int(input("ingrese indice del descuento 1 a 7 "))
+        self.descuento= desc._Descuentos__validarDia(input("ingrese un dia del 1 al 7 "))
         self.precio=float(input("ingrese precio de la entrada "))
         self.fecha=input("ingrese fecha en formato dd/mm/aa ")
         self.horario=input("ingrese horario en formato HH:MM ")
         print("ESTOS DATOS SON CORRECTOS? ")
         _r=input("para confirmar escriba Y , cualquier otro caracter para cancelar ")
         if _r == "Y":
-            consulta=f"UPDATE Sala SET formato = '{self.formato}', pelicula = '{self.pelicula}', descuento = '{self.descuento}', precio = '{self.precio}', fecha = '{self.fecha}', horario = '{self.horario}', nro_Butacas = '{self.butacas}' WHERE id_sala = {self.id};"
+            consulta=f"UPDATE Sala SET formato = '{self.formato}', pelicula = '{self.pelicula}', descuento = '{self.descuento}', precio = '{self.precio}', fecha = '{self.fecha}', horario = '{self.horario}' WHERE id_sala = {self.id};"
             #print(consulta)
             conexion=BDD.crear_conexion()
             mSala=BDD.consulta(conexion,consulta)

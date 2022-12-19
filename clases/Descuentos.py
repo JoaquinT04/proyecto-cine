@@ -27,7 +27,7 @@ class Descuentos:
 		self.__dia = dia
 	
 	#Funcion privada para verificar que el dia ingresado ya sea por parametro o por consola sea valido
-	def __validarDia(self,dia = None):
+	def __validarDia(self,dia = None):	
 		while True:
 			try:
 				if dia == None:
@@ -95,5 +95,3 @@ class Descuentos:
 		descuento = BDD.consulta(conexion,consulta)[0][0]
 		BDD.cerrar(conexion)
 		return descuento
-
-	

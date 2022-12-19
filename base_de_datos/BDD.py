@@ -39,7 +39,7 @@ def generarDB():
 	salaID INTEGER,
 	estado INTEGER,
 	FOREIGN KEY (salaID) REFERENCES Sala(id_sala),
-	FOREIGN KEY (estado) REFERENCES Usuario(DNI));"""),
+	FOREIGN KEY (estado) REFERENCES Reserva(id_reserva));"""),
 	("""CREATE TABLE IF NOT EXISTS Descuentos (
 	dia INTEGER PRIMARY KEY,
 	descuento FLOAT);"""),
@@ -48,6 +48,7 @@ def generarDB():
 	monto FLOAT,
 	sala INTEGER,
 	id_usuario INTEGER,
+	butaca BOOL,
 	FOREIGN KEY (sala) REFERENCES Sala(id_sala),
 	FOREIGN KEY (id_usuario) REFERENCES Usuario(DNI));"""),
 	("""CREATE TABLE IF NOT EXISTS Sala(id_sala INTEGER PRIMARY KEY,
@@ -70,4 +71,4 @@ def generarDB():
 	conexion.commit()
 	conexion.close()
 
-#generarDB()
+# generarDB()
