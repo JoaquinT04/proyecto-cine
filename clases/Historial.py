@@ -30,18 +30,45 @@ class Historial():
   # def __rangoTiempo(self,fechaInicial):
   #   #TE devuelve una fecha final
   #   pass
-  def agregarHistorial(self):
-    pass
+  def agregarHistorial(self,idSala):
+    #Traigo una lista de reservas con el idSala
+    #Osea todas las reservas de una sala
+    conexion = BDD.crear_conexion()
+    consulta_ = f"select * from Reserva where sala = {idSala};"
+    reservas = BDD.consulta(conexion,consulta_)
+    #Recorro cada reserva de la lista de reservas
+    for reserva in reservas:
+      print(reserva)
+      #Traigo los datos del Usuario
+      consulta_ =  f"select * from Usuario where DNI = {reserva[3]}"
+      usuario = BDD.consulta(conexion,consulta_)[0]
+      dni=usuario[0]
+      nombre=usuario[1]
+      apellido=usuario[2]
+      superCliente= usuario[3]
+      #Traigo los datos de la Sala
+      consulta_ =  f"select * from Sala where id_sala = {reserva[2]}"
+      sala = BDD.consulta(conexion,consulta_)[0]
+      formato=sala[1]
+      pelicula=sala[2]
+      monto= sala[4]
+      fecha=sala[5]
+      horario=sala[6]
+
+      #Envio los valores necesarios para la creacion de un Historial
+      consulta_ =  f"insert into Historial values (NULL, {dni},'{nombre}','{apellido}',{superCliente},'{pelicula}','{formato}','{fecha}','{horario}',{monto})"
+      BDD.consulta(conexion,consulta_)
+    BDD.cerrar(conexion)
 
   def buscarUsuario(self, idUsuario):
     conexion = BDD.crear_conexion()
     id_usuario = idUsuario
-    consulta_ = f"SELECT reserva FROM Usuario WHERE DNI={id_usuario}"
-    reserva = BDD.consulta(conexion, consulta_)[0][0]
-    consulta_ = f"SELECT id_reserva FROM Reserva WHERE id_reserva={reserva}"
-    veces = BDD.consulta(conexion, consulta_)[0][0]
+    consulta_ = f"SELECT * FROM Historial WHERE documento ={id_usuario}"
+    historial = BDD.consulta(conexion, consulta_)
+    # consulta_ = f"SELECT id_reserva FROM Reserva WHERE id_reserva={reserva}"
+    # veces = BDD.consulta(conexion, consulta_)[0][0]
     BDD.cerrar(conexion)
-    return veces
+    return historial
 
   def validarTarjeta(self, idUsuario):
     conexion = BDD.crear_conexion()

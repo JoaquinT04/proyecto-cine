@@ -6,6 +6,7 @@ from clases import Descuentos
 from clases import Butacas
 from clases import Reservas
 from clases.Usuario import Usuario
+from clases.Historial import Historial
 #Prueba Sala/Salas
 
 # p=Sala.BDD.crear_conexion()
@@ -128,3 +129,9 @@ from clases.Usuario import Usuario
 # # print(user.verReserva())
 # # print(user.verSalas())
 # print(user.pedirTarjeta())
+
+
+#Prueba Historial
+# historial = Historial()
+# historial.agregarHistorial(1)
+# print(historial.buscarUsuario(321321))
