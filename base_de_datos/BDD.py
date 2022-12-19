@@ -39,7 +39,7 @@ def generarDB():
 	salaID INTEGER,
 	estado INTEGER,
 	FOREIGN KEY (salaID) REFERENCES Sala(id_sala),
-	FOREIGN KEY (estado) REFERENCES Usuario(DNI));"""),
+	FOREIGN KEY (estado) REFERENCES Reserva(id_reserva));"""),
 	("""CREATE TABLE IF NOT EXISTS Descuentos (
 	dia INTEGER PRIMARY KEY,
 	descuento FLOAT);"""),
@@ -70,4 +70,4 @@ def generarDB():
 	conexion.commit()
 	conexion.close()
 
-generarDB()
+# generarDB()

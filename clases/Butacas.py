@@ -34,7 +34,6 @@ class Butacas():
     BDD.consulta(conexion,consulta_)
     BDD.cerrar(conexion)
 
-
   def eliminarButacasSala(self,idSala):
     conexion = BDD.crear_conexion()
     consulta_ = f"delete from Butacas where salaID = {idSala}"
@@ -59,12 +58,12 @@ class Butacas():
     BDD.consulta(conexion,consulta_)
     BDD.cerrar(conexion)
 
-  def modificarButacaUsuario(self,idUsuario,nuevoEstado):
+  def modificarButacaReserva(self,idReserva,nuevoEstado):
     conexion = BDD.crear_conexion()
     if nuevoEstado != "NULL":
-      consulta_ = f"update Butacas set estado ={nuevoEstado} where estado = {idUsuario}"
+      consulta_ = f"update Butacas set estado ={nuevoEstado} where estado = {idReserva}"
     else:
-      consulta_ = f"update Butacas set estado = NULL where estado = {idUsuario}"
+      consulta_ = f"update Butacas set estado = NULL where estado = {idReserva}"
       
     BDD.consulta(conexion,consulta_)
     BDD.cerrar(conexion)
@@ -76,3 +75,13 @@ class Butacas():
     butacas = BDD.consulta(conexion,consulta_)
     BDD.cerrar(conexion)
     return butacas
+
+  def buscarXEstadoySala(self,idSala,estado):
+    conexion = BDD.crear_conexion()
+    if estado != "NULL":
+      consulta_ = f"select * from Butacas where estado= {estado} and salaID = {idSala}"
+    else:
+      consulta_ = f"select * from Butacas where estado= NULL and salaID = {idSala}"
+    salas = BDD.consulta(conexion,consulta_)
+    BDD.cerrar(conexion)
+    return salas

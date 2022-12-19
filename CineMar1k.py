@@ -4,6 +4,7 @@ from clases import Salas
 from clases import Historial
 from clases import Descuentos
 from clases import Butacas
+from clases import Reservas
 
 #Prueba Sala/Salas
 
@@ -75,9 +76,6 @@ from clases import Butacas
 #Prueba Butacas
 #Agrego contenido a Butacas
 # butacas = Butacas.Butacas()
-lS=Salas.Salas()
-# print(lS)
-lS.agregarSala()
 # butacas.crearButaca(1)
 # butacas.modificarButaca(3,"NULL")
 # butacas.modificarButaca(4,3412421)
@@ -92,8 +90,26 @@ lS.agregarSala()
 
 
 #Agrego contenido a Sala
-
+# lS=Salas.Salas()
+# # print(lS)
+# lS.agregarSala()
+# lS.eliminarSala(2)
+# lS.modificar(2)
+# lS.buscarSala()
+# print(lS)
 # conexion = BDD.crear_conexion()
 # consulta_ = "insert into Sala values ;"
 # BDD.consulta(conexion,consulta_)
 # BDD.cerrar(conexion)
+
+
+#Agrego contenido a la tabla usuario
+# conexion = BDD.crear_conexion()
+# consulta_ = "insert into Usuario values('123123','Nombre','Apellido','0','contrasenia') ;"
+# BDD.consulta(conexion,consulta_)
+# BDD.cerrar(conexion)
+
+#Prueba de Reservas
+reserva = Reservas.Reservas()
+# reserva.agregarReserva(1,123123)
+reserva.eliminarReserva()
