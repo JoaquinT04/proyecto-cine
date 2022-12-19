@@ -1,5 +1,6 @@
 from clases import Salas
 from clases import Descuentos
+from base_de_datos import BDD
 class Administrado():
 	def __init__(self,contraseña = None):
 		self.__usuario_id = None
@@ -38,11 +39,14 @@ class Administrado():
 		desc.modificarDescuento()
 
 	def ver_la_disponibilidad_de_butacas(self,idSala):
+		conexion = BDD.crear_conexion()
+		consulta_ = f"SELECT SUM(CASE WHEN estado is null THEN 1 ELSE 0 END) FROM Butacas WHERE salaID = {idSala};"
+		butacas = (BDD.consulta(conexion,consulta_))
+		BDD.cerrar(conexion)
+		return butacas
 
-		pass
-
-	def gestion_de_venta_y_descuentos():
-		pass
-
-	def darTarjeta():
-		pass
+	#def gestion_de_venta_y_descuentos():
+	#	pass
+	#
+	#def darTarjeta():
+	#	pass

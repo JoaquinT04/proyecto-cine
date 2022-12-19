@@ -36,11 +36,12 @@ from clases import Administrador
 #BDD.generarDB()
 
 #####ADMINISTRADOR---------------------------
-ad=Administrador.Administrado()
+#ad=Administrador.Administrado()
 #ad.crearSala()
 #ad.verSalas()
 #ad.modificaSala()
 #ad.modificarDescuentos()
+#print(ad.ver_la_disponibilidad_de_butacas(2))
 
 #Prueba de Descuentos
 # desc = Descuentos.Descuentos()
