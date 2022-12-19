@@ -3,6 +3,12 @@ from clases import Sala
 from clases import Salas
 from clases import Historial
 from clases import Descuentos
+from clases import Butacas
+from clases import Reservas
+from clases.Usuario import Usuario
+from clases.Historial import Historial
+#Prueba Sala/Salas
+
 # p=Sala.BDD.crear_conexion()
 # #consul="SELECT * FROM Sala WHERE id_sala = 1;"
 # #a=Sala.BDD.consulta(p,consul)
@@ -38,15 +44,17 @@ from clases import Descuentos
 # desc = Descuentos.Descuentos()
 
 # desc.modificarDescuento()
-# print(desc.devolverDescuentoDia(10))
+# for i in range(1,8):
+# 	print(desc.devolverDescuentoDia(i))
+	
 
 #Cargando la base de datos
+# Agrego datos Descuentos
 # conexion = BDD.crear_conexion()
+# consulta_ = "insert into Descuentos values ('1','20'),('2','15'),('3','20'),('4','15'),('5','10'),('6','10'),('7','10');"
 # BDD.consulta(conexion,consulta_)
 # BDD.cerrar(conexion)
 
-#Agrego datos Descuentos
-# consulta_ = "insert into Descuentos values ('1','20'),('2','15'),('3','20'),('4','15'),('5','10'),('6','10'),('7','10');"
 
 
 
@@ -65,3 +73,65 @@ from clases import Descuentos
 # histo.validarTarjeta('111')
 # id_Reserva= 0
 # histo.buscarUsuario(id_Reserva)
+
+#Prueba Butacas
+#Agrego contenido a Butacas
+# butacas = Butacas.Butacas()
+# butacas.crearButaca(1)
+# butacas.modificarButaca(3,"NULL")
+# butacas.modificarButaca(4,3412421)
+# butacas.modificarButaca(4,"NULL")
+# butacas.modificarButacaSala(1,"NULL")
+# butacas.eliminarButacasSala(1)
+# conexion = BDD.crear_conexion()
+# consulta_ = "insert into Butacas values ;"
+# BDD.consulta(conexion,consulta_)
+# BDD.cerrar(conexion)
+
+
+
+#Agrego contenido a Sala
+# lS=Salas.Salas()
+# # print(lS)
+# lS.agregarSala()
+# lS.eliminarSala(2)
+# lS.modificar(2)
+# lS.buscarSala()
+# print(lS)
+# conexion = BDD.crear_conexion()
+# consulta_ = "insert into Sala values ;"
+# BDD.consulta(conexion,consulta_)
+# BDD.cerrar(conexion)
+
+
+#Agrego contenido a la tabla usuario
+# conexion = BDD.crear_conexion()
+# consulta_ = "insert into Usuario values('123123','Nombre','Apellido','0','contrasenia') ;"
+# BDD.consulta(conexion,consulta_)
+# BDD.cerrar(conexion)
+
+#Prueba de Reservas
+# reserva = Reservas.Reservas()
+# reserva.agregarReserva(2,123123)
+# reserva.eliminarReserva(2) 
+# print(reserva.buscarXUsuario(123123))
+
+#Prueba de Usuario
+# user = Usuario()
+# # user.crearUsuario(321321,"Joaquin","Otro Apellido","MiContrasenia")
+# # user.crearUsuario(512312412,"Joaquin","Otro Apellido","MiContrasenia")
+# # user.eliminarUsuario(512312412,"MiContrasenia")
+# # user.modificarUsuario(321321)
+# # print(user.verUsuarios())
+# print(user.ingresar(123123,"contrasenia"))
+# # print(user)
+# # user.borrarReserva()
+# # print(user.verReserva())
+# # print(user.verSalas())
+# print(user.pedirTarjeta())
+
+
+#Prueba Historial
+# historial = Historial()
+# historial.agregarHistorial(1)
+# print(historial.buscarUsuario(321321))
