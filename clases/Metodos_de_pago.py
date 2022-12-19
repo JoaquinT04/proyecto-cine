@@ -37,10 +37,3 @@ class Metodos_de_pago():
       descuento = float(BDD.consulta(conexion, consulta_)[0][0])
     monto = precio - precio*(descuento/100)
     return monto
-
-
-  def darCVU(self):
-    pass
-
-  def modificarMetodoDePago(self):
-    pass
