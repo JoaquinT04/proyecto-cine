@@ -3,6 +3,7 @@ from clases import Sala
 from clases import Salas #¡comentar esta importacon cuando quiean regenerar la base de datos!
 from clases import Historial
 from clases import Descuentos
+from clases import Administrador
 # p=Sala.BDD.crear_conexion()
 # #consul="SELECT * FROM Sala WHERE id_sala = 1;"
 # #a=Sala.BDD.consulta(p,consul)
@@ -25,15 +26,21 @@ from clases import Descuentos
 # consul="SELECT * FROM Sala;"
 # a=Sala.BDD.consulta(p,consul)
 # Sala.BDD.cerrar(p)
-lS=Salas.Salas()
-print(lS)
+#lS=Salas.Salas()
+#print(lS)
 #lS.buscarSala()
 #print(lS)
-lS.agregarSala()
+#lS.agregarSala()
 #lS.modificar(5)
 #lS.eliminarSala(4)
 #BDD.generarDB()
 
+#####ADMINISTRADOR---------------------------
+ad=Administrador.Administrado()
+#ad.crearSala()
+#ad.verSalas()
+#ad.modificaSala()
+ad.modificarDescuentos()
 #Prueba de Descuentos
 # desc = Descuentos.Descuentos()
 

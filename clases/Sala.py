@@ -1,13 +1,13 @@
 from base_de_datos import BDD
 class Sala():
-    def __init__(self,id=None,formato=None,pelicula=None,descuento=None,precio=None,frcha=None,horario=None,butacas=None,nro=None):
+    def __init__(self,id=None,formato=None,pelicula=None,descuento=None,precio=None,fecha=None,horario=None,butacas=None,nro=None):
         self.__id=id
         self.__formato=formato
         self.__butacas=butacas
         self.__pelicula=pelicula
         self.__descuento=descuento
         self.__precio=precio
-        self.__fecha #dd/mm/aa
+        self.__fecha= fecha #dd/mm/aa
         self.__horario=horario #hh:mm
         self.__nroButacasReservadas=nro
 
