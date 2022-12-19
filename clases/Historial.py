@@ -3,7 +3,6 @@ from base_de_datos import BDD
 from datetime import timedelta, datetime
 
 class Historial():
-<<<<<<< HEAD
   def __init__(self):
       self.__sala = None
       self.__reserva = None
@@ -76,50 +75,7 @@ class Historial():
     id_usuario = idUsuario
     consulta_ = f"SELECT Super_Cliente FROM Historial WHERE documento={id_usuario}"
     try:
-=======
-    def __init__(self):
-        self.__sala = None
-        self.__reserva = None
-    
-    @property
-    def sala(self):
-      return self.__sala
-    @sala.setter
-    def sala(self, nuevosala):
-      self.__sala = nuevosala
-    
-    @property
-    def reserva(self):
-      return self.__reserva
-    @reserva.setter
-    def reserva(self, nuevoreserva):
-      self._reserva = nuevoreserva
-    
-    def __str__(self):
-        cadena = "Sala: " + str(self.__sala)
-        cadena += "\nReserva: " + str(self.__reserva)
-        return cadena
-    
 
-    # def __rangoTiempo(self,fechaInicial):
-    #   #TE devuelve una fecha final
-    #   pass
-
-    def buscarUsuario(self, idUsuario):
-      conexion = BDD.crear_conexion()
-      id_usuario = idUsuario
-      consulta_ = f"SELECT reserva FROM Usuario WHERE DNI={id_usuario}"
-      reserva = BDD.consulta(conexion, consulta_)[0][0]
-      consulta_ = f"SELECT id_reserva FROM Reserva WHERE id_reserva={reserva}"
-      veces = BDD.consulta(conexion, consulta_)[0][0]
-      BDD.cerrar(conexion)
-      return veces
-
-    def validarTarjeta(self, idUsuario):
-      conexion = BDD.crear_conexion()
-      id_usuario = idUsuario
-      consulta_ = f"SELECT Super_Cliente FROM Historial WHERE documento={id_usuario}"
->>>>>>> Gonza-branch
       supercliente = BDD.consulta(conexion, consulta_)[0][0]  #0 si es falso, 1 si es verdadero
     except IndexError as err:
       print("el cliente no esta en el historial")
@@ -130,10 +86,6 @@ class Historial():
         BDD.cerrar(conexion)
         return print("EL usuario ya es super cliente")
       else:
-<<<<<<< HEAD
-
-=======
->>>>>>> Gonza-branch
         band = False
         consulta_ = f"SELECT UniqueID FROM Historial WHERE documento={id_usuario}"
         #print(BDD.consulta(conexion, consulta_))
@@ -166,7 +118,6 @@ class Historial():
         if reservas >= 6 and band==True:
           consulta_ = f"UPDATE Usuario SET Super_Cliente = '1' WHERE DNI={id_usuario}" 
           BDD.consulta(conexion, consulta_)
-<<<<<<< HEAD
           # consulta_ = f"UPDATE Historial SET Super_Cliente = '1' WHERE documento={id_usuario}"
           # BDD.consulta(conexion, consulta_)
           BDD.cerrar(conexion)
@@ -178,12 +129,3 @@ class Historial():
           return False 
     else:
       return False
-=======
-          consulta_ = f"UPDATE Historial SET Super_Cliente = '1' WHERE documento={id_usuario}"
-          BDD.consulta(conexion, consulta_)
-          BDD.cerrar(conexion)
-          return print("El usuario ahora es un super cliente")
-        else:
-          BDD.cerrar(conexion)
-          return print("El susuario no cumple con las condiciones para ser super cliente")
->>>>>>> Gonza-branch

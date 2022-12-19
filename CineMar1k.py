@@ -84,7 +84,6 @@ from clases.Historial import Historial
 # id_Reserva= 0
 # histo.buscarUsuario(id_Reserva)
 
-<<<<<<< HEAD
 #Prueba Butacas
 #Agrego contenido a Butacas
 # butacas = Butacas.Butacas()
@@ -117,7 +116,7 @@ from clases.Historial import Historial
 
 #Agrego contenido a la tabla usuario
 # conexion = BDD.crear_conexion()
-# consulta_ = "insert into Usuario values('123123','Nombre','Apellido','0','contrasenia') ;"
+# consulta_ = "insert into Usuario values('123123','Nombre','Apellido','1','contrasenia') ;"
 # BDD.consulta(conexion,consulta_)
 # BDD.cerrar(conexion)
 
@@ -129,8 +128,8 @@ from clases.Historial import Historial
 
 #Prueba de Usuario
 # user = Usuario()
-# # user.crearUsuario(321321,"Joaquin","Otro Apellido","MiContrasenia")
-# # user.crearUsuario(512312412,"Joaquin","Otro Apellido","MiContrasenia")
+# user.crearUsuario(321321,"Joaquin","Otro Apellido","MiContrasenia")
+# user.crearUsuario(512312412,"Joaquin","Otro Apellido","MiContrasenia")
 # # user.eliminarUsuario(512312412,"MiContrasenia")
 # # user.modificarUsuario(321321)
 # # print(user.verUsuarios())
@@ -146,43 +145,3 @@ from clases.Historial import Historial
 # historial = Historial()
 # historial.agregarHistorial(1)
 # print(historial.buscarUsuario(321321))
-=======
-import tkinter 
-
-from tkinter import ttk, Button, Frame, messagebox, Tk
-from login import Login
-from registro import CrearCuenta
-
-class App(Frame):
-    
-    def __init__(self, root):
-        super().__init__(root)
-        self.root=root
-        self.grid()
-        self.crear_widgets()
-        
-        
-    def crear_widgets(self):
-        self.button= Button(self)
-        self.button["text"] = "Login"
-        self.button["command"] = self.abrir_login 
-        self.button.grid(padx=50, pady=15)
-        
-        self.button1= Button(self)
-        self.button1["text"] = "Registro"
-        self.button1["command"] = self.abrir_registro 
-        self.button1.grid(padx=50, pady=15)
-        
-        
-    def abrir_login(self):
-        Login(self.root)
-        
-    
-    def abrir_registro(self):
-       CrearCuenta(self.root)
-        
-
-root=Tk()
-app= App(root)
-app.mainloop()
->>>>>>> Gonza-branch

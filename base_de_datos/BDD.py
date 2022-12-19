@@ -1,4 +1,3 @@
-
 import sqlite3
 
 def crear_conexion():
@@ -24,11 +23,7 @@ def generarDB():
 	Nombre TEXT(30) NOT NULL,
 	Apellido TEXT(30) NOT NULL,
 	Super_Cliente BOOL NOT NULL,
-<<<<<<< HEAD
-	Contrasenia TEXT(30));"""),
-=======
 	Contrasenia TEXT(20) NOT NULL);"""),
->>>>>>> Gonza-branch
 	("""CREATE TABLE IF NOT EXISTS Historial (
 	UniqueID INTEGER PRIMARY KEY AUTOINCREMENT,
 	documento INTEGER NOT NULL,
@@ -77,9 +72,4 @@ def generarDB():
 	conexion.commit()
 	conexion.close()
 
-<<<<<<< HEAD
 # generarDB()
-=======
-
-generarDB()
->>>>>>> Gonza-branch

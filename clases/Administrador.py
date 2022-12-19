@@ -1,3 +1,6 @@
+from clases import Salas
+from clases import Descuentos
+from base_de_datos import BDD
 class Administrado():
 	def __init__(self,contraseña = None):
 		self.__usuario_id = None
@@ -17,23 +20,33 @@ class Administrado():
 	def historial_de_salas():
 		pass
 
-	def crearSala():
-		pass
+	def crearSala(self):
+		lS=Salas.Salas()
+		lS.agregarSala()
 	
-	def modificaSala():
-		pass
+	def modificaSala(self):
+		lS=Salas.Salas()
+		print(lS)
+		op=input("ingrese id de la sala a modificar")
+		lS.modificar(op)
 
-	def verSalas():
-		pass
+	def verSalas(sef):
+		lS=Salas.Salas()
+		print(lS)
 
-	def modificarDescuentos():
-		pass
+	def modificarDescuentos(self):
+		desc=Descuentos.Descuentos()
+		desc.modificarDescuento()
 
-	def ver_la_disponibilidad_de_butacas():
-		pass
+	def ver_la_disponibilidad_de_butacas(self,idSala):
+		conexion = BDD.crear_conexion()
+		consulta_ = f"SELECT SUM(CASE WHEN estado is null THEN 1 ELSE 0 END) FROM Butacas WHERE salaID = {idSala};"
+		butacas = (BDD.consulta(conexion,consulta_))
+		BDD.cerrar(conexion)
+		return butacas
 
-	def gestion_de_venta_y_descuentos():
-		pass
-
-	def darTarjeta():
-		pass
+	#def gestion_de_venta_y_descuentos():
+	#	pass
+	#
+	#def darTarjeta():
+	#	pass

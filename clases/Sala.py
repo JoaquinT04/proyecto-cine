@@ -1,9 +1,5 @@
 from base_de_datos import BDD
-<<<<<<< HEAD
 from clases.Descuentos import Descuentos
-=======
-
->>>>>>> Gonza-branch
 class Sala():
     def __init__(self,id=None,formato=None,pelicula=None,descuento=None,precio=None,fecha=None,horario=None,butacas=None,nro=None):
         self.__id=id
@@ -114,14 +110,9 @@ class Sala():
         print(self)
         self.formato=input("ingrese formato 2d o 3d ")
         self.pelicula=input("ingrese nombre de la pelicula ")
-<<<<<<< HEAD
         self.descuento= desc._Descuentos__validarDia(input("ingrese un dia del 1 al 7 "))
         self.precio=float(input("ingrese precio de la entrada "))
         self.fecha=input("ingrese fecha en formato dd/mm/aa ")
-=======
-        self.descuento=int(input("ingrese indice del descuento 1 a 7 "))
-        self.precio=float(input("ingrese precio de la entrada "))
->>>>>>> Gonza-branch
         self.horario=input("ingrese horario en formato HH:MM ")
         print("ESTOS DATOS SON CORRECTOS? ")
         _r=input("para confirmar escriba Y , cualquier otro caracter para cancelar ")
